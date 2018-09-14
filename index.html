@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="ToDoList">
+  <!-- Incluir o nome da aplicacao em ng-app -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teste</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+ 
+  <script src="angular-local-storage.js"></script>
+</head>
+  <body ng-controller="ToDoController">
+    <!-- Incluimos o controller em ng-controller-->
+<div id="page">
+  <div class="row">
+    <div class="12-small columns">
+      <h1>Tabela de dados</h1>
+    </div>
+    
+    <div class="12-small columns">
+      <ul class="lista-tareas no-bullet">
+        <!-- Uma repeticao para adicionar os dados -->
+        <li ng-repeat="tarea in todo">
+          <div class="nombre-tarea">
+            <label><b>NOME:</b></label> {{tarea.descripcion}}
+          </div>
+          <div class="fecha-tarea">
+            <label><b>CPF:</b></label>  {{tarea.fecha}}
+          </div>
+          <div class="fecha-tarea">
+            <label><b>TELEFONE:</b></label>  {{tarea.telefone}}
+          </div>
+          <div class="fecha-tarea">
+            <label><b>EMAIL:</b></label> {{tarea.email}}
+          <br><br>
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="12-small columns">
+      <form ng-submit="agregarTarea()">
+        <label for="nuevaTarea">Nome</label>
+        <input type="text" id="nuevaTarea" ng-model="nuevaTarea.descripcion">
+        <label for="fechaTarea">Cpf</label>
+        <input type="text" id="fechaTarea" ng-model="nuevaTarea.fecha">
+        <label for="fechaTarea">Telefone</label>
+        <input type="text" id="telefone" ng-model="nuevaTarea.telefone">
+        <label for="fechaTarea">Email</label>
+        <input type="text" id="email" ng-model="nuevaTarea.email">
+
+    
+        <div class="row">
+          <div class="small-12 medium-6 columns">
+            <input type="submit" value="Criar Lista" class="button radius small success">
+          </div>
+          <div class="small-12 medium-6 columns">
+            <input type="button" value="Excluir Lista" ng-click="limpiarLista()" class="button radius small alert">
+          </div>
+        </div>
+      </form>
+    </div>
+    
+  </div>
+</div>
+  
+  
+  <script src="app.js"></script>
+  <script src="controllers.js"></script>
+
+</body>
+</html>
